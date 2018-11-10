@@ -1,0 +1,54 @@
+name:                quickfix-dictionary-pruner
+version:             0.1.0.0
+github:              "henriknordin/quickfix-dictionary-pruner"
+license:             BSD3
+author:              "Henrik Nordin"
+maintainer:          "nordhenr@gmail.com"
+copyright:           "2018 Henrik Nordin"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Find all fields defined but not used in a quickfix dictionary"
+# category:            Finance
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/henriknordin/quickfix-dictionary-pruner#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- optparse-applicative >= 0.14 && < 0.15
+- bytestring >= 0.10.8 && < 0.11
+- xeno >= 0.3 && < 0.4
+- mtl >= 2.2.2 && < 2.3
+- containers >= 0.5.11 && <= 0.6
+
+library:
+  source-dirs: src
+
+executables:
+  quickfix-dictionary-pruner-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -Wall
+    - -O2
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - quickfix-dictionary-pruner
+
+tests:
+  quickfix-dictionary-pruner-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - quickfix-dictionary-pruner
